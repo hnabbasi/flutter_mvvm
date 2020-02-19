@@ -1,12 +1,12 @@
 import 'package:flutter_mvvm/models/Movie.dart';
-import 'package:flutter_mvvm/services/movie_service.dart';
+import 'package:flutter_mvvm/services/social_service.dart';
 import 'package:flutter_mvvm/viewmodels/baseViewModel.dart';
 
 class MovieDetailsViewModel extends BaseViewModel {
   Movie _movie;
-  MovieService movieService;
+  SocialService _socialService;
 
-  MovieDetailsViewModel({this.movieService}){
+  MovieDetailsViewModel(this._socialService){
     title = "Details";
   }
 
@@ -18,6 +18,6 @@ class MovieDetailsViewModel extends BaseViewModel {
   }
   
   void share(){
-    print("Sharing ${_movie.title}");
+    _socialService.shareMovie(movie);
   }
 }

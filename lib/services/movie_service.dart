@@ -4,9 +4,12 @@ import 'package:http/http.dart' as http;
 
 class MovieService {
   List<Movie> _movies = List<Movie>();
+  String apiUrl;
+
+  MovieService({this.apiUrl});
 
   Future<List<Movie>> getMovies(String keyword) async {
-    final url = "http://www.omdbapi.com/?s=$keyword&apikey=67b8e2cf";
+    final url = "$apiUrl?s=$keyword&apikey=67b8e2cf";
     final response = await http.get(url);
 
     if(response.statusCode == 200) {

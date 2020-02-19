@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/models/Movie.dart';
-import 'package:flutter_mvvm/viewmodels/movieDetailsViewModel.dart';
 import 'package:flutter_mvvm/views/movie_details_page.dart';
-import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:provider/provider.dart';
-//import 'package:google_fonts/google_fonts.dart';
 
 class MovieList extends StatelessWidget {
 
@@ -14,6 +10,7 @@ class MovieList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(">>> ${this.toStringShort()} called");
     return GridView.count(
       crossAxisCount: 2,
       children: List.generate(this.movies.length, (index) {
@@ -23,10 +20,6 @@ class MovieList extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => MovieDetailsPage(this.movies[index])
-//                builder: (context) => ChangeNotifierProvider(
-//                  create: (context) => MovieDetailsViewModel(),
-//                  child: MovieDetailsPage()
-//                ),
               )
             )
           },
